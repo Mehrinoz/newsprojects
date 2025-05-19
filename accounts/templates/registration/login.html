@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} login  {% endblock title %}
+
+
+{% block content %}
+<h1> web saytga kirish -Login</h1>
+<p> <a href="{% url 'accounts:password_reset' %}" class="btn btn-info">Parolni qayta tiklash </a></p>
+<p> Web saytga kirish uchun login parolingizni kiriting: </p>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary"> Kirish </button>
+
+</form>
+<p class="btn btn-success">Agar siz login qilmagan bo'lsangiz<a href="{% url 'accounts:signup' %}" class="btn btn-success">Ro'yxatdan o'tsih</a>tugmasini bosing </p>
+{% endblock content %}

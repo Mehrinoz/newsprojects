@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{news.title}} {% endblock title %}
+{% block content %}
+    <h2 class="text-center"> yangiliklarni tahrirlash </h2>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+        <button type="submit" class="btn btn-success">
+            yangilikni taxrirlash
+        </button>
+    </form>
+
+{% endblock content %}

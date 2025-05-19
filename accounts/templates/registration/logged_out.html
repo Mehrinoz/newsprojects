@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} logout {% endblock title %}
+
+
+{% block content %}
+<h1> web saytga  chiqdingiz
+</h1>
+<p> Web saytga qayta kirish uchun: </p>
+<a href="{% url 'accounts:login' %}" class="btn btn-primary"> qayta kirish </a>
+
+{% endblock content %}

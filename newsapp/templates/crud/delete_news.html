@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{news.title}} {% endblock title %}
+{% block content %}
+<!--<h2 class="text-center"> yangiliklarni o'chirish </h2>-->
+<!--<button type="submit" class="btn btn-danger"> yangilikni o'chirish</button>-->
+    <h2 class="text-center"> yangiliklarni o'chirish </h2>
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.as_p }}
+
+        <p>{{ news.title|truncatewords:4 }}... sarlavhani yangilikni o'chirishni xoxlaysizmi? </p>
+            <button type="submit" class="btn btn-danger">
+                yangilikni o'chirish
+            </button>
+        </form>
+{% endblock content %}

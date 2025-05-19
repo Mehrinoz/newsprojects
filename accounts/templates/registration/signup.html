@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ro'yxatdan o'tish sahifasi{% endblock title %}
+
+{% block content %}
+<h1>Ro'yxatdan o'tish sahifasi xush kelibsiz!</h1>
+<p>Quydagi formani to'ldiring</p>
+<form method="post">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="submit">Ro'yxatdan o'tish</button>
+</form>
+
+{% endblock %}

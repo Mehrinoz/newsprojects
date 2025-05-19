@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>News List Page</title>
+</head>
+<body>
+      <h1>
+        News List Page
+      </h1>
+      {%for news in news_list %}
+      <img style="width : 500px" src="{{news.image.url}}" alt="{{news.title}}">
+      <a href="{% url 'newsapp:detail_page' news.id %}"><h2>{{news.title}}</h2></a>
+      <h2>{{news.title}}</h2>
+      <p>{{news.status}}</p>
+      {%endfor %}
+</body>
+</html>

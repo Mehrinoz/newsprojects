@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Admin sahifasi{% endblock title %}
+
+{% block content %}
+<h1>Xush kelibsiz Admin!</h1>
+<h4>Barcha adminlar ro'yxati</h4>
+<table class="table table-bordered table-responsible table-striped">
+  <tr>
+    <th>Username</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for admin in admin_user %}
+  <tr>
+    <th>{{ admin.username }}</th>
+    <th>{{ admin.first_name }}</th>
+    <th>{{ admin.last_name }}</th>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

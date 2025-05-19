@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profil sahifasi{% endblock title %}
+
+{% block content %}
+<!--<div class="container mt-5">-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="col-md-6">-->
+<!--            <div class="card shadow-lg">-->
+<!--                <div class="card-header bg-primary text-white text-center">-->
+<!--                    <h4>Xush kelibsiz, {{ user.username }}</h4>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <table class="table table-borderless">-->
+<!--                        <tr>-->
+<!--                            <th>Username:</th>-->
+<!--                            <td><input value="{{ user.username }}" class="form-control" readonly></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>Email:</th>-->
+<!--                            <td><input value="{{ user.email }}" class="form-control" readonly></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>Ism:</th>-->
+<!--                            <td><input value="{{ user.first_name }}" class="form-control" readonly></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>Familiya:</th>-->
+<!--                            <td><input value="{{ user.last_name }}" class="form-control" readonly></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th>Tug'ilgan kuni:</th>-->
+<!--                            <td><input value="{{ profile.date_of_birth }}" class="form-control" readonly></td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+
+<!--                    <div class="d-flex justify-content-between mt-4">-->
+<!--                        <a href="{% url 'accounts:password_change' %}" class="btn btn-warning">🔑 Parolni o'zgartirish</a>-->
+<!--                        <form action="{% url 'accounts:logout' %}" method="post">-->
+<!--                            {% csrf_token %}-->
+<!--                            <button type="submit" class="btn btn-danger">🚪 Chiqish</button>-->
+<!--                        </form>-->
+<!--                        <a href="{% url 'accounts:profile_edit' %} " class="btn btn-primary">tahrirlash</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-4">-->
+<!--            {% if profile.photo %}-->
+<!--                <img src="{{ profile.photo.url }}" alt="{{user.username}}" style="width : 100px;">-->
+<!--            {% else %}-->
+<!--                <h2>{{user.username}}</h2>-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+<div class="profile-card">
+    {% if profile.photo %}
+        <img src="{{ profile.photo.url }}" alt="{{user.username}}" style="width : 100px;">
+    {% else %}
+        <div class="mb-3">
+            <span class="btn btn-secondary smallPic">{{user.username|first}}</span>
+        </div>
+    {% endif %}
+
+    <h3 class="bm-1">{{user.username}}</h3>
+    <span class="name d-block">{{user.first_name}} {{user.last_name}}</span>
+    <br>
+    <span class="idd d-block">@{{user.username}}</span>
+
+        <div class="mt-3">
+            <a href="{% url 'accounts:profile_edit' %} " class="btn btn-info">Edit Profile</a>
+        </div>
+    <div class="d-flex justify-content-between mt-4">
+    <a href="{% url 'accounts:password_change' %}" class="btn btn-warning">🔑 Parolni o'zgartirish</a>
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">🚪 Chiqish</button>
+    </form>
+    </div>
+
+        <div class="text mt-3">
+            <h5>Tug'ilgan kuni: {{ profile.date_of_birth }}</h5>
+        </div>
+        <div class="text mt-4">
+            <span class="join">Joined {{ user.date_joined|date:"Y-m-d" }}</span>
+        </div>
+</div>
+
+
+
+{% endblock %}

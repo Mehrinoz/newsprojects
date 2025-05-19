@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ro'yxatdan o'tish sahifasi{% endblock title %}
+
+{% block content %}
+<h1>Siz muvofaqiyatli ro'yxatdan o'tdingiz</h1>
+<p>Quydagi formani to'ldiring</p>
+<p>Endi siz <a href="{% url 'accounts:login'%}">login</a> qilishingiz mumkin</p>
+
+{% endblock %}

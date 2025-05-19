@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Xorij habarlar {% endblock title %}
+{% block content %}
+{% for xorij in xorijnews_list %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="{{ xorij.get_absolut_url }}">
+                <img src="{{ xorij.image.url }}" alt="{{ xorij.title }}" style="width: 100%; margin-bottom: 15px;">
+            </a>
+        </div>
+        <div class="col-sm-8">
+            <a href="{{ xorij.get_absolute_url}}">
+                <h2><b>{{ xorij.title }}</b></h2>
+            </a>
+            <p>{{ xorij.body| truncatewords:50}}</p>
+           <p>{{ xorij.published_time }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

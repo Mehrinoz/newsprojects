@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Xorij habarlar {% endblock title %}
+{% block content %}
+{% for technology in texnalogyanews_list %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="{{ technology.get_absolut_url }}">
+                <img src="{{ technology.image.url }}" alt="{{technology.title }}" style="width: 100%; margin-bottom: 15px;">
+            </a>
+        </div>
+        <div class="col-sm-8">
+            <a href="{{ technology.get_absolute_url }}">
+                <h2><b>{{ technology.title }}</b></h2>
+            </a>
+            <p>{{ technology.body| truncatewords:50}}</p>
+           <p>{{ technology.published_time }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

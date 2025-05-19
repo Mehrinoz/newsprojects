@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load hitcount_tags %}
+
+{% block title %}izohni tahrirlash saxifasi{% endblock title %}
+{% block content %}
+<h1>Izohni tahrirlash </h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Izohni saqlash</button>
+</form>
+<!--<button action="{% url 'newsapp:detail_page' slug=comment.news.slug %}" class="btn btn-warning">Ortaga qaytish</button>-->
+<a href="{% url 'newsapp:detail_page' slug=comment.news.slug %}" class="btn btn-primary">ortga qaytish</a>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load hitcount_tags %}
+
+{% block title %}izohni o'chirishni tasdiqlash sahifasi saxifasi{% endblock title %}
+{% block content %}
+<h2>izohni o'chirishni tasdiqlang</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Izohni o'chirish</button>
+</form>
+<button><a href="{% url 'newsapp:detail_page' slug=delete_comment.news.slug %}">orqaga
+</a></button>
+{% endblock content %}

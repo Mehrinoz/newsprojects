@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load hitcount_tags %}
+
+{% block title %}Detail{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <img class="cover-pic" src="{{ news_detail.image.url }}" alt="{{ news_detail.title }}" style="width:100%">
+        </div>
+        <div class="col-lg-6">
+            <h1>{{ news_detail.title }}</h1>
+            <hr>
+            <h4 class="text-muted">Kategoriya: <span class="text-primary">{{ news_detail.category }}</span></h4>
+
+
+            {% if request.user.is_authenticated %}
+            <form action="{% url 'newsapp:like' news_detail.slug  %}" method="post" style=" display:inline-blok;">
+                {% csrf_token %}
+                {% if is_liked %}
+                    <p><i class="fa-solid fa-clock"></i>{{ news_detail.published_time }}
+                    |{% blocktranslate %}  <i class="fa-solid fa-eye">{% endblocktranslate %}{% get_hit_count for news_detail %} |</i>
+                    <button type="submit"  class="fa-solid fa-heart" style="border:none; background:none; color:red ;"></button>{{likes_count}} </p>
+                {% else %}
+                    <p><i class="fa-solid fa-clock"></i>{{ news_detail.published_time }}
+                    |{% blocktranslate %}  <i class="fa-solid fa-eye">{% endblocktranslate %}{% get_hit_count for news_detail %} |</i>
+                    <button type="submit"  class="fa-regular fa-heart" style="border:none; background:none; color:grey; "></button> {{likes_count}} </p>
+                {% endif %}
+            </form>
+            {% endif %}
+            <p class="lead">{{ news_detail.body }}</p>
+        </div>
+        <div class="text-center">
+            {% if request.user.is_superuser and request.user.is_authenticated %}
+                <a href="{% url 'newsapp:update_news' news_detail.slug %}" class="btn btn-info"> Taxrirlash </a>
+                <a href="{% url 'newsapp:delete_news' news_detail.slug %}" class="btn btn-danger"> O'chirish </a>
+
+            {% endif %}
+        </div>
+    </div>
+    {% if comments %}
+        <h1 class="text-danger">{% blocktranslate %} Izohlar {% endblocktranslate %}</h1>
+        <h3>Izohlar soni {{ coment_count }} ta </h3>
+        {% for comment in comments %}
+            <i class="fa-solid fa-user-secret"><h3>{{ comment.user.username }}</h3></i>
+            {% if request.user == comment.user %}
+            <a href="{% url 'newsapp:edit_comment' pk=comment.pk %}"><i class="fa-solid fa-pencil">Tahrirlash</i></a>
+            <a href="{% url 'newsapp:delete_comment' pk=comment.pk %}"><i class="fa-solid fa-trash">o'chirish</i></a>
+            {% endif %}
+            <i class="fa-solid fa-calendar-days"><span>{{ comment.created_time }}</span></i>
+            <p>{{ comment.body }}</p>
+        {% endfor %}
+    {% endif %}
+    <h1>{% blocktranslate %}Izoh qoldirish{% endblocktranslate %} </h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit" class="btn btn-primary">Izoh saqlash</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
+

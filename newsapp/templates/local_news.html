@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Xorij habarlar {% endblock title %}
+{% block content %}
+{% for local in page_obj %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="{{ local.get_absolut_url }}">
+                <img src="{{ local.image.url }}" alt="{{local.title }}" style="width: 100%; margin-bottom: 15px;">
+            </a>
+        </div>
+        <div class="col-sm-8">
+            <a href="{{ local.get_absolute_url }}">
+                <h2><b>{{ local.title }}</b></h2>
+            </a>
+            <p>{{ local.body| truncatewords:50}}</p>
+           <p>{{ local.published_time }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock content %}

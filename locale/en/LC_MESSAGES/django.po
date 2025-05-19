@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-03 15:00+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\config\settings.py:114
+msgid "Uzbek"
+msgstr ""
+
+#: .\config\settings.py:115
+msgid "English"
+msgstr ""
+
+#: .\config\settings.py:116
+msgid "Russian"
+msgstr ""
+
+#: .\newsapp\templates\news_detail.html:18
+msgid " Ko'rilganlar soni "
+msgstr "View count"
+
+#: .\newsapp\templates\news_detail.html:30
+msgid " Izohlar "
+msgstr "Comments"
+
+#: .\newsapp\templates\news_detail.html:42
+msgid "Izoh qoldirish"
+msgstr "Leave a comment"
+
+#: .\templates\home.html:5
+msgid "Bosh sahifa"
+msgstr "home page"
+
+#: .\templates\home.html:25
+msgid "So'ngi xabarlar"
+msgstr "Latest news"
+
+#: .\templates\home.html:51
+msgid "Maxalliy Xabarlar"
+msgstr "Local news"
+
+#: .\templates\home.html:90
+msgid "Xorij Xabarlari"
+msgstr "Foreign news"
+
+#: .\templates\home.html:126
+msgid "Tehnalogik Xabarlar"
+msgstr "Technology news"
+
+#: .\templates\home.html:163
+msgid "Sport Xabarlari"
+msgstr "Sport news"
+
+#: .\templates\home.html:202
+msgid "Ommabop Xabarlar"
+msgstr "Popular news"
+
+#: .\templates\home.html:274
+msgid "Sponsor"
+msgstr "Sponsor"
