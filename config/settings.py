@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['news-sayt2.uz']
+ALLOWED_HOSTS = ['mehrinoznews.uz']
 
 
 # Application definition
@@ -128,7 +128,7 @@ STATIC_URL = 'static/'
 # STATICFILES_DIRS = [BASE_DIR /'static']
 # STATIC_ROOT = BASE_DIR /'staticfiles'
 
-STATICFILES_DIRS = ['/home/mehrinoz/mehrinoznews.uz/students/static']
+STATICFILES_DIRS = ['/home/mehrinoz/mehrinoznews.uz/students/static', ]
 STATIC_ROOT = '/home/mehrinoz/mehrinoznews.uz/students/staticfiles'
 
 STATICFILES_FINDERS = [
